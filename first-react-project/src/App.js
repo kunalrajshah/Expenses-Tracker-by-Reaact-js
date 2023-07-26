@@ -1,7 +1,7 @@
 import Expenses from "./Components/All Expenses Rendering/Expenses";
-import React from 'react';
+import React from "react";
 
-const App= () => {
+const App = () => {
   let expenses = [
     {
       id: "e1",
@@ -32,19 +32,18 @@ const App= () => {
       amount: 114.49,
     },
   ];
-  // return (
-  //   <div>
-  //     <h2>Let's get started</h2>
-  //     <Expenses items={expenses} />
-  //   </div>
-  // );
-
-  return React.createElement(
-    'div',
-    {},
-    React.createElement('h2', {}, "Let's get started"),
-    React.createElement(Expenses, { items: expenses })
+  return (
+    // return React.createElement(
+    //   'div',
+    //   {},
+    //   React.createElement('h2', {}, "Let's get started"),
+    //   React.createElement(Expenses, { items: expenses })
+    // );
+    <div>
+      <h2>Let's get started</h2>
+      <Expenses items={expenses} />
+    </div>
   );
-}
+};
 
 export default App;
