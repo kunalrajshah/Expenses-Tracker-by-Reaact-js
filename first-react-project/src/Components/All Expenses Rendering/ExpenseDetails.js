@@ -4,27 +4,26 @@ import React,{useState} from "react";
 const ExpenseDetails= (props) => {
   // Here props consist title,location,amount as an object.
   // usestate return Array which consist two element one is variable and other is function.And that function use to changing things.
+  
   // Use Array Destructuring
   const [title,setTitle]=useState(props.title);
-  const [amount,setAmount]=useState(props.amount);
+  const [newTitle,setNewTitle]=useState("");
   
   const clickHandler=()=>{
-    setTitle(prompt('Enter New title'));
+    setTitle(newTitle);
   }
 
-  const addhandler=()=>{
-    setAmount('100');
+  const changeHandler=(event)=>{
+    setNewTitle(event.target.value);
   }
-
-  
 
   return (
     <div className="expense-item__description">
       <h2>{title}</h2>
       <h3 className="location">{props.location}</h3>
-      <div className="expense-item__price">${amount}</div>
+      <div className="expense-item__price">${props.amount}</div>
+      <input type="text" value={newTitle} onChange={changeHandler}/>
       <button onClick={clickHandler}>Change Title</button>
-      <button onClick={addhandler}>Add Amount</button>
     </div>
   );
 }

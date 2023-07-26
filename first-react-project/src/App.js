@@ -1,4 +1,5 @@
 import Expenses from "./Components/All Expenses Rendering/Expenses";
+import NewExpense from "./Components/NewExpensesAdd/NewExpense";
 import React from "react";
 
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
     //   React.createElement(Expenses, { items: expenses })
     // );
     <div>
-      <h2>Let's get started</h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
