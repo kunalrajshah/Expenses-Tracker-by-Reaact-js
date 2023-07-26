@@ -13,18 +13,28 @@ const ExpenseForm = () => {
   const changeamountHandler = (event) => {
     setInputAmount(event.target.value);
   };
-  const changedatehandler = (event) => {
+  const changedateHandler = (event) => {
     setInputDate(event.target.value);
   };
 
-  const showdata = () => {
-    console.log(inputTitle);
-    console.log(inputAmount);
-    console.log(inputDate);
-  };
+
+  const submitHandler=(event)=>{
+    event.preventDefault(); //used to prevent from default behaviour on submit the form(like reload page).
+    // After taking data from input. make an object of that Data.
+    const expenseData={
+      title:inputTitle,
+      amount:inputAmount,
+      date:new Date(inputDate)
+    }
+    console.log(expenseData);
+    
+    setInputTitle("");
+    setInputAmount("");
+    setInputDate("");
+  }
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
@@ -47,12 +57,12 @@ const ExpenseForm = () => {
             min="2019-01-01"
             max="2023-12-31"
             value={inputDate}
-            onChange={changedatehandler}
+            onChange={changedateHandler}
           />
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit" onClick={showdata}>
+        <button type="submit">
           Add Expense
         </button>
       </div>

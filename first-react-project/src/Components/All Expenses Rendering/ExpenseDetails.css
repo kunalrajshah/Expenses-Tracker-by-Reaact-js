@@ -24,12 +24,6 @@
   padding: 0.5rem;
   border-radius: 12px;
 }
-.location{
-  font-size: 1rem;
-  flex: 1;
-  margin: 0 1rem;
-  color:white
-}
 
 @media (min-width: 580px) {
   .expense-item__description {

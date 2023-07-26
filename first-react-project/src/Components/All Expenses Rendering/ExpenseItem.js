@@ -10,7 +10,6 @@ const ExpenseItem= (props) =>{
       <ExpenseDate date_obj={props.date} />
       <ExpenseDetails
         title={props.title}
-        location={props.location}
         amount={props.amount}
       />
     </Card>
