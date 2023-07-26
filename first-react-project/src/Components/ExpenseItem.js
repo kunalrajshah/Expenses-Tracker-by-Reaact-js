@@ -1,10 +1,11 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
+import Card from "./Card";
 
 function ExpenseItem(props) {
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       {/* pass {props.date} to ExpenseDate component with name date_obj. so that we can use that date_obj in ExpenseDate */}
       <ExpenseDate date_obj={props.date} />
       <ExpenseDetails
@@ -12,7 +13,7 @@ function ExpenseItem(props) {
         location={props.location}
         amount={props.amount}
       />
-    </div>
+    </Card>
   );
 }
 
