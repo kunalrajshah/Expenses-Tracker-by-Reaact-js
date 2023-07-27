@@ -11,7 +11,7 @@ let DUMMY_DATA = [
   },
   {
     id: "e2",
-    date: new Date(2022, 5, 12),
+    date: new Date(2021, 5, 12),
     title: "Room Service",
     amount: 243.49,
   },
