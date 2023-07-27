@@ -31,7 +31,6 @@ const Expenses = (props) => {
     ))
   }
   
-
   return (
     <Card className="Expenses">
       <ExpenseFilter

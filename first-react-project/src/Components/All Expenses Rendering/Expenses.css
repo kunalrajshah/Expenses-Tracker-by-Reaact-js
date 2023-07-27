@@ -9,4 +9,6 @@
 .Expenses p{
   color: red;
   margin-left: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
 }

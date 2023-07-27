@@ -17,23 +17,22 @@ const ExpenseForm = (props) => {
     setInputDate(event.target.value);
   };
 
-
-  const submitHandler=(event)=>{
+  const submitHandler = (event) => {
     event.preventDefault(); //used to prevent from default behaviour on submit the form(like reload page).
     // After taking data from input. make an object of that Data.
-    const expenseData={
-      title:inputTitle,
-      amount:inputAmount,
-      date:new Date(inputDate)
-    }
+    const expenseData = {
+      title: inputTitle,
+      amount: inputAmount,
+      date: new Date(inputDate),
+    };
 
-    props.onSaveExpenseData(expenseData); 
+    props.onSaveExpenseData(expenseData);
     // Passing data from child component to parent component(newExpense.js).
-    
+
     setInputTitle("");
     setInputAmount("");
     setInputDate("");
-  }
+  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -64,9 +63,8 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit">
-          Add Expense
-        </button>
+        <button type="button" onClick={props.cancel}>Cancel</button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
   );
