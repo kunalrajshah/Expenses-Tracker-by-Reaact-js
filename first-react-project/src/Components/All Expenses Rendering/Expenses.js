@@ -3,6 +3,7 @@ import Expenseitem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpensesFilter";
+import ExpensesChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -15,12 +16,16 @@ const Expenses = (props) => {
     return exp.date.getFullYear().toString() === filteredYear;
   });
 
-  // We can use HTML element inside the variable in JSX code.
-  let noExpenseMsg=<p>No Expense Found !!</p>
-  let oneExpenseMsg=<p>Only single Expense here. Please add more...</p>
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
-  if(filterExpenses.length > 0){
-    noExpenseMsg=filterExpenses.map((expense) => (
+  // We can use HTML element inside the variable in JSX code.
+  let noExpenseMsg = <p>No Expense Found !!</p>;
+  let oneExpenseMsg = <p>Only single Expense here. Please add more...</p>;
+
+  if (filterExpenses.length > 0) {
+    noExpenseMsg = filterExpenses.map((expense) => (
       // When we rander list always add unique ID.
       <Expenseitem
         key={expense.id}
@@ -28,9 +33,9 @@ const Expenses = (props) => {
         title={expense.title}
         amount={expense.amount}
       />
-    ))
+    ));
   }
-  
+
   return (
     <Card className="Expenses">
       <ExpenseFilter
@@ -41,7 +46,7 @@ const Expenses = (props) => {
       {/* We can also return by && property of js */}
       {/* {filterExpenses.length === 0 && <p>No Expense Found.</p>} */}
       {/* it check if first condition is true then it return second element */}
-    
+
       {/* {filterExpenses.length === 0 ? (
         <p>No Expense Found.</p>
       ) : (
@@ -55,10 +60,9 @@ const Expenses = (props) => {
           />
         ))
       )} */}
-
+      <ExpensesChart expenses={filteredExpenses} />
       {noExpenseMsg}
-      {filterExpenses.length ===1 && oneExpenseMsg}
-
+      {filterExpenses.length === 1 && oneExpenseMsg}
     </Card>
   );
 };
